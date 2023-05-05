@@ -7,7 +7,7 @@ import Controller from '@/utils/interfaces/controller.interface';
 import ErrorMiddleware from '@/middleware/error.middleware';
 import helmet from 'helmet';
 
-class App {
+export default class App {
   public express: Application;
   public port: number;
 
