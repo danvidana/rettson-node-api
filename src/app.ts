@@ -43,7 +43,15 @@ export default class App {
   private initializeDatabaseConnection(): void {
     const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
 
-    mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`);
+    console.log(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`)
+
+    mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`)
+      .then(() => {
+        console.log('connected to MongoDB')
+      })
+      .catch((e: any) => {
+        console.log('error connecting to MongoDB:', e.message)
+      });
   }
 
   public listen(): void {
